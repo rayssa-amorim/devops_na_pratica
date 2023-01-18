@@ -1,3 +1,8 @@
+
+![Captura de tela_20230118_110656](https://i.imgur.com/yVeUOW2.png)
+
+
+
 ### 1. Vangrant
 - Cria e gerencia máquinas virtuais
 - Foco em automação
@@ -55,7 +60,10 @@ apt install -y ngnix
 SHELL
 `````
 
-#### ATENÇÃO :
+#### Comandos Básicos :
+ ![Captura de tela_20230117_163551](https://i.imgur.com/EkdsUbi.png) 
+
+ #### ATENÇÃO :
 
 - Configure o .gitignore para ignorar o diretório .vagrant (o . vagrant armazena muitos dados temporários )
 - vagrant destroy apaga a máquina, não a box.
@@ -63,8 +71,3 @@ SHELL
 - Foward de portas obrigatoriamente acima de 1024.( _Abaixo disso são portas  reservadas para o SO_)
 - Sempre executar **vagrant reload** após toda alteração no Vangratfile.
 - Instalação dos módulos vbguest que são extremamente importantes para instalação de drivers de rede, entre outros.
-
-#### Comandos Básicos :
- ![Captura de tela_20230117_163551](https://i.imgur.com/EkdsUbi.png) 
-
- 
