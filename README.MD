@@ -1,5 +1,5 @@
 
-![Captura de tela_20230118_110656](https://i.imgur.com/yVeUOW2.png)
+![Captura de tela_20230118_111913](https://i.imgur.com/LSO1sWn.png)
 
 ### INFRAESTRUTURA COMO CÓDIGO - IaC
 --------
