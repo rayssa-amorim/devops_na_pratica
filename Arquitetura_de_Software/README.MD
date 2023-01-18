@@ -32,4 +32,4 @@
     -  Como aprende ? 
 
 
- ![Captura de tela_20230118_153402](https://i.imgur.com/kGguaQm.png)     
+           ![Captura de tela_20230118_153402](https://i.imgur.com/kGguaQm.png)     
