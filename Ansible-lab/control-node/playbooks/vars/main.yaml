@@ -1,4 +1,4 @@
-mysql_root_password: devopspratica
+mysql_root_password: devopsnapratica
 mysql_databases:
   - name: notes
     encoding: latin1
@@ -6,5 +6,5 @@ mysql_databases:
 mysql_users:
   - name: notesapp
     host: "%"
-    password: devopspratica
+    password: devopsnapratica
     priv: "notes.*:ALL"
