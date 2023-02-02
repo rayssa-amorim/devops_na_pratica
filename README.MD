@@ -78,6 +78,7 @@ SHELL
 - É uma utilitário open source utilizado para orquestração e gerenciamento de configuração.
 - Serve para automatização e padronização de configurações de hosts virtuais( bare metal e máquinas virtuais)
 - Arquitetura simples 
+- É _idempontente_ pois garante que a mesma configuração seja mantida mesmo que seja executada mais de uma vez.Não repete a mesma tarefa, como por exemplo, a criação do mesmo diretório.
 
 **Arquitetura do  Ansible** 
 
@@ -92,7 +93,40 @@ SHELL
 
 ![Captura de tela_20230122_191540](https://i.imgur.com/hW66H7x.png) 
 
-- **Core Modules**: Executam a grande maioria das atividades de administração do sistema operacional.
-- **Custom Modules**: Extende a funcionalidade cirando componentes personalizados ( Python).
-- **Playbooks**: Arquivo texto do tipo YAML com sintaxe pré-definida.
+- _**Core Modules**_: Executam a grande maioria das atividades de administração do sistema operacional.
+- _**Custom Modules**_: Extende a funcionalidade criando componentes personalizados ( Python).
+- _**Playbooks**_: Arquivo texto do tipo YAML com sintaxe pré-definida. São executados em conjunto, grupo ou classificação de hosts que, juntos, formam o inventário do Ansible.
+     - São utilizados com regularidade para automatização de infraestrutura de TI como SO e plataformas Kubernetes, redes e  sistemas de segurança .
+     - Ajuda a programar instalação de aplicações,serviços, nós de servidores dentre outros sem a sobrecarga de ter que criar tudo do zero manualmente.
+     -  Podem ser salvos, reutilizados e compartilhados assim como também suas variáveis, condições e tarefas.
+ 
+ - Um _módulo do Ansible_ é um script que pode ser usado dentro do Ansible playbook.
+ - As _plays_ são um conjunto ordenado de tarefas a serem executadas em hosts selecionados no arquivo de inventário do Ansible. As tarefas serão executadas conforme a ordem em que estão escritas.   
+
+Exemplo de playbook :
+
+```python
+---
+- name: Configurar servidor de banco de dados
+  hosts: db01
+
+  user: vagrant
+  become: yes      // executa como root
+  vars_files:     //arquivo de variáveis para deixar o código clean
+    - vars/main.yaml
+  vars:
+    - dbname: "db01"
+    - dbusername: "root"
+    - dbpassword: "devopspratica"
+  tasks:
+    - name: Configurar hosts lab ansible 
+      lineinfile: line "{{item}}" path=etc/hosts
+      with_items:
+        - 192.168.1.2 control-node
+        - 192.168.1.3 app01
+        - 192.168.1.4 db01
+  roles: 
+    - configuração-default-so  
+    - role: geerlingguy.mysql    
+```
 
