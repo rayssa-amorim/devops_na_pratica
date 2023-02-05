@@ -29,7 +29,8 @@ Vagrant.configure("2") do |config|
   # Mysql Part
   $script_mysql = <<-SCRIPT
     apt-get update && \
-    apt-get install -y openjdk-8-jdk  mysql-server-5.7 && \
+    apt-get install -y openjdk-8-jdk  mysql-server-5.5 && \
+    apt-get install -y  mysql-client-core-5.5 && \
     mysql -e "create user 'devops'@'%' identified by 'mestre';"  && \
     mysql -e "create user 'devops_dev'@'%' identified by 'mestre';"  && \
     mysql -e "create database todo;" && \

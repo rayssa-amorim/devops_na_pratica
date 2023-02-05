@@ -136,8 +136,9 @@ SHELL
 
 - Quando uma pasta com um nome x, tem essas subspastas dentro, com todos os arquivos yaml dentro de cada uma delas, temos uma **role**.
 - O ansible automaticamente procurará um arquivo _main.yaml_ dentro da pasta tasks para iniciar as tasks.
-- Quando uma task faz uma alteração no sistema, pode ser necessário executar uma task ou tasks adicionais. Por exemplo, uma alteração no arquivo de configuração de um serviço pode exigir que ele seja reiniciado para que a configuração alterada entre em vigor. As _**Handlers**_ são  vistas como tasks inativas que só são adicionadas quando chamadas explicitamente usada a instrução _notify_.
-- **_Handlers_** são tarefas que só serão executadas quando notificadas, sendo executadas assim que todas as tarefas são concluídas. Usadas para iniciar, recarregar, reiniciar e interromper serviços.
+- Quando uma task faz uma alteração no sistema, pode ser necessário executar uma task ou tasks adicionais. Por exemplo, uma alteração no arquivo de configuração de um serviço pode exigir que ele seja reiniciado para que a configuração alterada entre em vigor.
+-  As _**Handlers**_ são  vistas como tasks inativas que só são adicionadas quando chamadas explicitamente usada a instrução _notify_. São tarefas que só serão executadas quando notificadas, sendo executadas assim que todas as tarefas são concluídas. Usadas para iniciar, recarregar, reiniciar e interromper serviços.
+
 
 Exemplo de playbook :
 
@@ -150,6 +151,8 @@ Exemplo de playbook :
 
 - **_become_**: Controla o escalonamento de privilégios é usado ou não na execução da task( tarefas).        
   
+  - O arquivo deve sempre começar com **três hífens** (---) e o elemento de primeiro nível é sempre uma lista que começa com um filtro chamado **hosts**.
+
 
 
 
